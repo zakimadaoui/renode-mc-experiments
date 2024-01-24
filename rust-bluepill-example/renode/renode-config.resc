@@ -1,0 +1,23 @@
+:name: STM32F1 Printf
+:description: This script runs an example on stm32f1 
+
+$name?="STM32F1"
+$bin?=@../target/thumbv7m-none-eabi/debug/rust-bluepill-example 
+
+# Create Machine & Load config
+mach create $name
+machine LoadPlatformDescription @stm32f103.repl
+# machine LoadPlatformDescription @add-ccm.repl
+
+# Create a terminal window showing the output of UART2
+showAnalyzer sysbus.usart2
+
+# Enable GDB
+machine StartGdbServer 3333
+
+macro reset
+"""
+    sysbus LoadELF $bin
+"""
+
+runMacro $reset

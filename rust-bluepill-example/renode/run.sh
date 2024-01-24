@@ -1,0 +1,1 @@
+renode renode-config.resc

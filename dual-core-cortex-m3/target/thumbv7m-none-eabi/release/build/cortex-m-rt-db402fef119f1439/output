@@ -1,0 +1,5 @@
+cargo:rustc-cfg=cortex_m
+cargo:rustc-cfg=armv7m
+cargo:rustc-link-search=/home/zakaria/renode_experiments/dual-core-cortex-m3/target/thumbv7m-none-eabi/release/build/cortex-m-rt-db402fef119f1439/out
+cargo:rerun-if-changed=build.rs
+cargo:rerun-if-changed=link.x.in
